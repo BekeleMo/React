@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import React, { Component } from "react";
+import { Navbar, NavbarBrand } from "reactstrap";
+import Menu from "./components/MenuComponent";
+import { DISHES } from "./shared/dishes";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      dishes: DISHES,
+    };
+  }
+
+  render() {
+    return (
+      <div>
+        <Navbar dark color="primary">
+          <div className="container">
+            <NavbarBrand href="/">Ristorante Con Fusion</NavbarBrand>
+          </div>
+        </Navbar>
+        <Menu dishes={this.state.dishes} />
+
+        {/* <Counter />
+       <ListRendering />
+       <ConditionalRendering />
+       <Parent/>
+       <EventBinding />
+       <input type="text" placeholder="Enter text" />
+       <button>Add Todo</button>
+       <button>Clear Todo</button>
+       <Greet name = "Bekele" heroName ="Batman">
+       <p>This is the children</p>
+       <button className=''>Submit</button>
+       </Greet>
+       <Welcome name = "Bekele" heroName ="Batman"/>
+       <Message/>*/}
+      </div>
+    );
+  }
 }
 
 export default App;
